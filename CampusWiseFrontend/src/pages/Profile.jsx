@@ -84,7 +84,7 @@ function Profile() {
       setProfile(response.data)
       setImage(null)
       setMessage('Profile updated successfully!')
-    } catch (err) {
+    } catch {
       setError('Could not update profile. Please try again.')
     }
   }

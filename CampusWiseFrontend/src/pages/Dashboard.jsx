@@ -14,7 +14,7 @@ function Dashboard() {
       try {
         const response = await api.get('/auth/me/')
         setStudent(response.data)
-      } catch (err) {
+      } catch {
         setError('Could not load student information.')
       } finally {
         setLoading(false)
@@ -44,6 +44,15 @@ function Dashboard() {
         <h1 className="text-2xl font-bold text-blue-700">CampusWise</h1>
 
         <div className="flex items-center gap-3">
+          {student?.role === 'admin' && (
+            <Link
+              to="/admin/internships"
+              className="rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white shadow hover:bg-indigo-800 text-sm"
+            >
+              ⚙️ Admin Internships
+            </Link>
+          )}
+
           <Link
             to="/profile"
             className="rounded-lg border border-blue-600 px-4 py-2 font-medium text-blue-600 hover:bg-blue-50"
